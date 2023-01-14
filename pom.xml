@@ -1,0 +1,453 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Test</groupId>
+  <artifactId>TestFacebook</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+<selenium.version>4.4.0</selenium.version>
+
+<cucumber.version>7.2.3</cucumber.version>
+
+<junit.version>4.13</junit.version>
+
+<webdrivermanager.version>5.3.0</webdrivermanager.version>
+
+<aventstack.version>5.0.9</aventstack.version>
+
+<grasshopper.version>1.7.0</grasshopper.version>
+
+<poi.version>5.2.2</poi.version>
+
+<json.version>20220320</json.version>
+
+<restassured.version>5.2.0</restassured.version>
+
+<ojdbc.version>21.7.0.0</ojdbc.version>
+
+<bson.version>4.7.1</bson.version>
+
+<log4j.version>2.18.0</log4j.version>
+
+<slf.version>2.0.0</slf.version>
+
+<maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+
+<maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
+
+<junit-jupiter-api>5.8.2</junit-jupiter-api>
+
+<maven.failsafe.version> 3.0.0-M7</maven.failsafe.version>
+
+</properties>
+
+<build>
+
+<plugins>
+
+<plugin>
+
+<groupId>org.apache.maven.plugins</groupId>
+
+<artifactId>maven-compiler-plugin</artifactId>
+
+<version>${maven.compiler.plugin.version}</version>
+
+<configuration>
+
+<release>11</release>
+
+</configuration>
+
+</plugin>
+
+<plugin>
+
+<groupId>org.apache.maven.plugins</groupId>
+
+<artifactId>maven-surefire-plugin</artifactId>
+
+<version>${maven.surefire.plugin.version}</version>
+
+<configuration>
+
+<parallel>methods</parallel>
+
+<!-- <threadCount>15</threadCount>  -->
+
+<useUnlimitedThreads>true</useUnlimitedThreads>
+
+<testFailureIgnore>true</testFailureIgnore>
+
+<perCoreThreadCount>false</perCoreThreadCount>
+
+<rerunFailingTestsCount>2</rerunFailingTestsCount>
+
+</configuration>
+
+</plugin>
+
+<!--  Cucumber JVM report plugin Starting ............................https://github.com/damianszczepanik/maven-cucumber-reporting  -->
+
+<plugin>
+
+<groupId>net.masterthought</groupId>
+
+<artifactId>maven-cucumber-reporting</artifactId>
+
+<version>5.6.1</version>
+
+<executions>
+
+<execution>
+
+<id>execution</id>
+
+<phase>verify</phase>
+
+<goals>
+
+<goal>generate</goal>
+
+</goals>
+
+<configuration>
+
+<projectName>CMBSAutomation - Portal-II</projectName>
+
+<!--  optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified  -->
+
+<skip>false</skip>
+
+<!--  output directory for the generated report  -->
+
+<!--  <outputDirectory>${project.build.directory}</outputDirectory>  -->
+
+<outputDirectory>Automation_Report/Cucumber_Report/advanced-reports</outputDirectory>
+
+<!--  <cucumberOutPut>${project.build.directory}/cucumber-reports/cucumber.json</cucumberOutPut>  -->
+
+<!--  <buildNumber>1</buildNumber>
+
+                                          <parallelTesting>false</parallelTesting>
+
+                                          <skip>false</skip>
+
+                                          <skippedFails>true</skippedFails>  -->
+
+<enableFlashCharts>true</enableFlashCharts>
+
+<inputDirectory>Automation_Report/Cucumber_Report</inputDirectory>
+
+<jsonFiles>
+
+<!--  supports wildcard or name pattern  -->
+
+<param>**/*.json</param>
+
+</jsonFiles>
+
+<!--  optional, defaults to outputDirectory if not specified  -->
+
+<classificationDirectory>Automation_Report/Cucumber_Report</classificationDirectory>
+
+<checkBuildResult>false</checkBuildResult>
+
+</configuration>
+
+</execution>
+
+</executions>
+
+</plugin>
+
+<!--  Cucumber JVM report plugin Ending ............................  -->
+
+</plugins>
+
+</build>
+
+<dependencies>
+
+<!--  Cucumber Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/io.cucumber/cucumber-java  -->
+
+<dependency>
+
+<groupId>io.cucumber</groupId>
+
+<artifactId>cucumber-java</artifactId>
+
+<version>${cucumber.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/io.cucumber/cucumber-junit  -->
+
+<dependency>
+
+<groupId>io.cucumber</groupId>
+
+<artifactId>cucumber-junit</artifactId>
+
+<version>${cucumber.version}</version>
+
+<scope>test</scope>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/io.cucumber/cucumber-java8  -->
+
+<dependency>
+
+<groupId>io.cucumber</groupId>
+
+<artifactId>cucumber-java8</artifactId>
+
+<version>${cucumber.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/io.cucumber/cucumber-core  -->
+
+<dependency>
+
+<groupId>io.cucumber</groupId>
+
+<artifactId>cucumber-core</artifactId>
+
+<version>${cucumber.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer  -->
+
+<dependency>
+
+<groupId>io.cucumber</groupId>
+
+<artifactId>cucumber-picocontainer</artifactId>
+
+<version>${cucumber.version}</version>
+
+<scope>test</scope>
+
+</dependency>
+
+<!--  Selenium-Java Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java  -->
+
+<dependency>
+
+<groupId>org.seleniumhq.selenium</groupId>
+
+<artifactId>selenium-java</artifactId>
+
+<version>${selenium.version}</version>
+
+</dependency>
+
+<!--  WebDriverManager Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager  -->
+
+<dependency>
+
+<groupId>io.github.bonigarcia</groupId>
+
+<artifactId>webdrivermanager</artifactId>
+
+<version>${webdrivermanager.version}</version>
+
+</dependency>
+
+<!--  Reporting Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter  -->
+
+<dependency>
+
+<groupId>tech.grasshopper</groupId>
+
+<artifactId>extentreports-cucumber7-adapter</artifactId>
+
+<version>${grasshopper.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/com.aventstack/extentreports  -->
+
+<dependency>
+
+<groupId>com.aventstack</groupId>
+
+<artifactId>extentreports</artifactId>
+
+<version>${aventstack.version}</version>
+
+</dependency>
+
+<!--  Log4j Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core  -->
+
+<dependency>
+
+<groupId>org.apache.logging.log4j</groupId>
+
+<artifactId>log4j-core</artifactId>
+
+<version>${log4j.version}</version>
+
+</dependency>
+
+<!--  API Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/org.json/json  -->
+
+<dependency>
+
+<groupId>org.json</groupId>
+
+<artifactId>json</artifactId>
+
+<version>${json.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/io.rest-assured/rest-assured  -->
+
+<dependency>
+
+<groupId>io.rest-assured</groupId>
+
+<artifactId>rest-assured</artifactId>
+
+<version>${restassured.version}</version>
+
+<scope>test</scope>
+
+</dependency>
+
+<!--  Apache Poi Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/org.apache.poi/poi  -->
+
+<dependency>
+
+<groupId>org.apache.poi</groupId>
+
+<artifactId>poi</artifactId>
+
+<version>${poi.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml  -->
+
+<dependency>
+
+<groupId>org.apache.poi</groupId>
+
+<artifactId>poi-ooxml</artifactId>
+
+<version>${poi.version}</version>
+
+</dependency>
+
+<!--  DB Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11  -->
+
+<dependency>
+
+<groupId>com.oracle.database.jdbc</groupId>
+
+<artifactId>ojdbc11</artifactId>
+
+<version>${ojdbc.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/org.mongodb/bson  -->
+
+<dependency>
+
+<groupId>org.mongodb</groupId>
+
+<artifactId>bson</artifactId>
+
+<version>${bson.version}</version>
+
+</dependency>
+
+<!--  SLF Dependencies  -->
+
+<!--  https://mvnrepository.com/artifact/org.slf4j/slf4j-api  -->
+
+<dependency>
+
+<groupId>org.slf4j</groupId>
+
+<artifactId>slf4j-api</artifactId>
+
+<version>${slf.version}</version>
+
+</dependency>
+
+<!--  https://mvnrepository.com/artifact/org.slf4j/slf4j-simple  -->
+
+<dependency>
+
+<groupId>org.slf4j</groupId>
+
+<artifactId>slf4j-simple</artifactId>
+
+<version>${slf.version}</version>
+
+<scope>test</scope>
+
+</dependency>
+
+<dependency>
+
+<groupId>junit</groupId>
+
+<artifactId>junit</artifactId>
+
+<version>4.13.2</version>
+
+<scope>compile</scope>
+
+</dependency>
+
+<!--  Mail Dependency  -->
+
+<!--  https://mvnrepository.com/artifact/javax.mail/javax.mail-api  -->
+
+<dependency>
+
+<groupId>javax.mail</groupId>
+
+<artifactId>javax.mail-api</artifactId>
+
+<version>1.5.5</version>
+
+</dependency>
+
+<dependency>
+
+<groupId>com.sun.mail</groupId>
+
+<artifactId>javax.mail</artifactId>
+
+<version>1.5.5</version>
+
+</dependency>
+
+</dependencies>
+</project>
