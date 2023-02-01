@@ -1,9 +1,9 @@
-# Default ignored files
 /shelf/
 /workspace.xml
 /.classpath
 /.factorypath
 /target/
+/test-output-thread/
 .project
 .classes
 .classpath

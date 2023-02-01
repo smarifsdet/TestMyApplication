@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="44.307">
-    <testcase classname="Functional Scenarios for ASK Login and Logout" name="Validation of labels in Create Request page in ASK application" time="43.711">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="41.811">
+    <testcase classname="Functional Scenarios for ASK Login and Logout" name="Validation of labels in Create Request page in ASK application" time="41.18">
         <failure message="Expected condition failed: waiting for condition (presence of element located by: By.xpath: //input[@placeholder='Username']) to be refreshed (tried for 30 second(s) with 1000 milliseconds interval)" type="org.openqa.selenium.TimeoutException"><![CDATA[Given user lanuch the "APP" application.....................................passed
 Then user login to "APP" application user as "REQUESTER"....................failed
 And user clicks logout button...............................................skipped
@@ -14,15 +14,15 @@ org.openqa.selenium.TimeoutException: Expected condition failed: waiting for con
 	at stepdefinition.Stepdefinition_LoginPage.user_login_to_something_application_user_as_something(Stepdefinition_LoginPage.java:69)
 	at ✽.user login to "APP" application user as "REQUESTER"(file:///C:/Users/smari/eclipse-workspace/TestMyApplication/src/test/java/features/logInPage.feature:12)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder='Username']"}
-  (Session info: chrome=108.0.5359.126)
+  (Session info: chrome=109.0.5414.120)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'DESKTOP-6E3PJH8', ip: '192.168.1.69', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [090245154c352baf3ca27f4af8ccf015, findElement {using=xpath, value=//input[@placeholder='Username']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 108.0.5359.126, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\smari\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62603}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62603/devtoo..., se:cdpVersion: 108.0.5359.126, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 090245154c352baf3ca27f4af8ccf015
-	at jdk.internal.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
+Command: [4d10fd4d4adb0d5a01e9ab32bd32f52a, findElement {using=xpath, value=//input[@placeholder='Username']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\smari\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58988}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58988/devtoo..., se:cdpVersion: 109.0.5414.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 4d10fd4d4adb0d5a01e9ab32bd32f52a
+	at jdk.internal.reflect.GeneratedConstructorAccessor11.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
